@@ -1,0 +1,24 @@
+{
+  "name": "code401-data-structures-and-algorithms",
+  "version": "1.0.0",
+  "description": "## Table of Contents",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bradydavenport/code401-data-structures-and-algorithms.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bradydavenport/code401-data-structures-and-algorithms/issues"
+  },
+  "homepage": "https://github.com/bradydavenport/code401-data-structures-and-algorithms#readme",
+  "dependencies": {
+    "jest": "^28.1.1",
+    "supertest": "^6.2.3"
+  }
+}
