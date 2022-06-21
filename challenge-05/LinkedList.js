@@ -15,7 +15,7 @@ class LinkedList {
   }
 
 
-  add(value) {
+  append(value) {
 
     const node = new Node(value);
     if (!this.head) {
@@ -37,7 +37,7 @@ class LinkedList {
     console.log('done traversing');
   }
 
-  insert(value) {
+  insertAtHead(value) {
     const newNode = new Node(value);
     newNode.next = this.head;
     this.head = newNode;
@@ -73,18 +73,38 @@ class LinkedList {
     console.log(resultStr);
   }
 
-  toString() {
+  insertBefore(value, newValue) {
+    const newNode = new Node(newValue);
     let current = this.head;
-    let str;
-    while (current) {
-      str += `{${current.value}} -> `;
-      current = current.next;
-      if (!current) {
-        str += 'NULL'
+    let previous;
+    if (current.value === 0) {
+      node.next = current;
+      this.head = node;
+    } else {
+      let i = 0;
+      while (i++ < value) {
+        previous = current;
+        current = current.next;
       }
+      node.next = current;
+      previous.next = node;
     }
-    let resultStr = str.slice(9, (str.length));
-    console.log(resultStr);
+    console.log(linkedList);
+  }
+
+  insertAfter(value, newValue) {
+    const newNode = new Node(newValue);
+    let current = this.head;
+    while(current) {
+      if (current.value === value) {
+        next.value = newValue;
+        newValue.next = current.next;
+        next.next++;
+      } else {
+        current = current.next;
+      }
+      return;
+    }
   }
 
 }
