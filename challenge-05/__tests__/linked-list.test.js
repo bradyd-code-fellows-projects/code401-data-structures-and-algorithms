@@ -1,18 +1,18 @@
 'use strict';
 
 const LinkedList = require('../LinkedList');
-const supertest = require('supertest');
 
 describe('Linked List Tests', () => {
 
   test('Can successfully instantiate an empty linked list', () => {
     let linkedList = new LinkedList;
-    expect(linkedList).toEqual({});
+    expect(linkedList.head).toEqual(null);
   })
 
   test('Can properly insert into the linked list', () => {
     let linkedList = new LinkedList;
-    expect(linkedList.insert('insertTest')).toEqual('asdlfkj')
+    let result = linkedList.insertAtHead(2);
+    expect(result).toEqual(2);
   })
 
   test.todo('The head property will properly point to the first node in the linked list')
