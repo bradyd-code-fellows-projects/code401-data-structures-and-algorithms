@@ -13,3 +13,5 @@ Challenge 04 - [Mock Interview 01](challenge-04/README.md)
 Challenge 05 - [Linked List](challenge-05/README.md)
 
 Challenge 06 - [Linked List Insertions](challenge-06/README.md)
+
+Challenge 07 - [Linked List Insertions](challenge-07/README.md)
