@@ -1,11 +1,15 @@
 'use strict';
 
+// Challenge 06: append(), insertBefore(), insertAfter()
+// Challenge 07: kthFromEnd()
+
 const { link } = require('fs');
 
 class Node {
   constructor(value) {
     this.value = value;
     this.next = null;
+    this.previous = null;
   }
 }
 
@@ -42,7 +46,6 @@ class LinkedList {
     newNode.next = this.head;
     this.head = newNode;
     this.length++;
-    console.log(linkedList.head)
   }
 
   includes(value) {
@@ -107,6 +110,21 @@ class LinkedList {
     }
   }
 
+  kthFromEnd(k) {
+    let i = 1;
+    let result;
+    while(current) {
+      if(i === k) {
+        result = current.value
+      } else if (i - k > 0) {
+        result = result.next;
+      }
+      i++;
+      current = current.next;
+    }
+    return result;
+  }
+
 }
 
-module.exports = { Node, LinkedList };
+module.exports = LinkedList;
