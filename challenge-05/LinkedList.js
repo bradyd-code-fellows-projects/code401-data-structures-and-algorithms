@@ -110,6 +110,8 @@ class LinkedList {
     }
   }
 
+  // use tortoise and hare concept: 2 pointers moving at different pace, hare is k paces ahead of tortoise
+  
   kthFromEnd(k) {
     let i = 1;
     let result;
