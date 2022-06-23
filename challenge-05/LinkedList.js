@@ -129,4 +129,29 @@ class LinkedList {
 
 }
 
+let zipLists = (list1, list2) => {
+  let zippedLists = new LinkedList;
+  let list1Pointer = list1.head;
+  let list2Pointer = list2.head;
+  let list1Length = 0;
+  let list2Length = 0;
+  let zippedListsLength = 0;
+  while(list1Pointer) {
+    list1Pointer = list1Pointer.next;
+    list1Length++;
+  }
+  while(list2Pointer) {
+    list2Pointer = list2Pointer.next;
+    list2Length++;
+  }
+  zippedListsLength = list1Length + list2Length;
+  while(zippedListsLength > 0) {
+    zippedLists.next = list1Pointer;
+    list1Pointer = list1Pointer.next;
+    zippedLists.next = list2Pointer;
+    list2Pointer = list2Pointer.next;
+  }
+  return zippedLists;
+}
+
 module.exports = LinkedList;
