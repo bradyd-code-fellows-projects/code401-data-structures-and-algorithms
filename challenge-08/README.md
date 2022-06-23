@@ -4,4 +4,4 @@
 
 [Linked List Implementation](/challenge-05/LinkedList.js)
 
-![linked-list-zip](/img/linked-list-zip.png)
+![linked-list-zip](/img/linked-list-zip.jpg)
