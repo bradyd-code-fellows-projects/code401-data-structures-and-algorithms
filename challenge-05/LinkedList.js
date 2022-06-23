@@ -1,7 +1,8 @@
 'use strict';
 
-// Challenge 06: append(), insertBefore(), insertAfter()
-// Challenge 07: kthFromEnd()
+// Challenge 06: append(value), insertBefore(value, newValue), insertAfter(value, newValue)
+// Challenge 07: kthFromEnd(k)
+// Challenge 08: zipLists(list1, list2)
 
 const { link } = require('fs');
 
@@ -66,14 +67,14 @@ class LinkedList {
     let current = this.head;
     let str;
     while (current) {
-      str += `{${current.value}} -> `;
+      str += `{ ${current.value} } -> `;
       current = current.next;
       if (!current) {
         str += 'NULL'
       }
     }
     let resultStr = str.slice(9, (str.length));
-    console.log(resultStr);
+    return resultStr;
   }
 
   insertBefore(value, newValue) {
@@ -131,27 +132,27 @@ class LinkedList {
 
 let zipLists = (list1, list2) => {
   let zippedLists = new LinkedList;
-  let list1Pointer = list1.head;
-  let list2Pointer = list2.head;
-  let list1Length = 0;
-  let list2Length = 0;
-  let zippedListsLength = 0;
-  while(list1Pointer) {
-    list1Pointer = list1Pointer.next;
-    list1Length++;
+  list1.current = list1.head;
+  list2.current = list2.head;
+  zippedLists.head = list1.current;
+  zippedLists.current = zippedLists.head;
+  while (list1.next) {
+    let next1 = 
+    zippedLists.next = list2.current;
+
   }
-  while(list2Pointer) {
-    list2Pointer = list2Pointer.next;
-    list2Length++;
-  }
-  zippedListsLength = list1Length + list2Length;
-  while(zippedListsLength > 0) {
-    zippedLists.next = list1Pointer;
-    list1Pointer = list1Pointer.next;
-    zippedLists.next = list2Pointer;
-    list2Pointer = list2Pointer.next;
-  }
-  return zippedLists;
+  return ('zippedLists: ', zippedLists);
 }
+
+// let linkedList = new LinkedList();
+
+// linkedList.append('a');
+// linkedList.append('b');
+// linkedList.append('c');
+// linkedList.append('d');
+// linkedList.append('e');
+// linkedList.append('f');
+
+// linkedList.toString();
 
 module.exports = LinkedList;
