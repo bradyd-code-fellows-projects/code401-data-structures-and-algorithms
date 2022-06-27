@@ -19,15 +19,21 @@ class Stack {
   }
 
   pop() {
-
+    let node = this.top;
+    this.top = node.next;
+    return node;
   }
 
   peek() {
-
+    return this.top.value;
   }
 
   isEmpty() {
-
+    if (this.top === null) {
+      return true;
+    } else {
+      return false;
+    }
   }
 
 }
@@ -67,6 +73,7 @@ class Queue {
 // console.log(stack);
 
 module.exports = {
+  Node,
   Stack,
   Queue,
 };
