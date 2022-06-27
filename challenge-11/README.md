@@ -2,4 +2,4 @@
 
 ## Implement a Queue using to Stacks
 
-[Link to Implementation](/implementations/stackAndQueue.js)
+[Link to Implementation](/implementations/PseudoQueue.js)
