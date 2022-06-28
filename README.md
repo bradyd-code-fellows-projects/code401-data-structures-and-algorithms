@@ -23,3 +23,7 @@ Challenge 09 - [Mock Interview 02](challenge-09/README.md)
 Challenge 10 - [Stack and Queue Implementation](challenge-10/README.md)
 
 Challenge 11 - [PseudoQueue](challenge-11/README.md)
+
+Challenge 12 - [AnimalShelter](challenge-12/README.md)
+
+
