@@ -10,21 +10,18 @@ class PseudoQueue {
 
   enqueue(value) {
     if (this.inputStack.top === null && this.outputStack.top === null) {
-      this.outputStack.push(value);
-    }
-    if (this.inputStack.top !== null && this.outputStack.top === null) {
-      this.outputStack.push(value);
-    }
-    if (this.inputStack.top === null && this.outputStack.top !== null) {
+      let newNode = new Node(value);
+      this.outputStack.push(newNode);
+    } else if (this.inputStack.top !== null && this.outputStack.top === null) {
+      let newNode = new Node(value);
+      this.outputStack.push(newNode);
+    } else if (this.inputStack.top === null && this.outputStack.top !== null) {
       while(this.outputStack) {
-        this.inputStack.push(this.outputStack.top);
+        this.inputStack.push(this.outputStack.pop());
       }      
-      while(this.inputStack) {
-        let popped = this.inputStack.top.pop();
-        this.outputStack.push(popped);
-      }
+      let newNode = new Node(value);
+      this.inputStack.push(newNode);
     }
-    this.outputStack.top.pop();
   }
 
   dequeue() {
