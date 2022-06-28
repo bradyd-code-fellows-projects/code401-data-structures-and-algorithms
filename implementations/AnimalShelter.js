@@ -26,11 +26,15 @@ class AnimalShelter {
     let current = this.front;
     if (pref === current.animal) {
       this.pop();
+      console.log(`${pref} removed from queue`)
     } else {
       current = this.next;
     }
-    console.log(`${pref} removed from queue`)
   }
 
 }
 
+module.exports = {
+  AnimalShelter,
+  chance,
+};
