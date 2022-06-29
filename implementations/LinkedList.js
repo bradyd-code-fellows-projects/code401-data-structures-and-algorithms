@@ -165,4 +165,8 @@ linkedList.kthFromEnd(6);
 
 // linkedList.toString();
 
-module.exports = LinkedList;
+module.exports = {
+  LinkedList,
+  Node,
+};
+
