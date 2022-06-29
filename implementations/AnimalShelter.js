@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node } = require('./stackAndQueue');
+const { Node } = require('./LinkedList');
 const Chance = require('chance');
 const chance = new Chance();
 
