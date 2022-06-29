@@ -20,4 +20,4 @@
 
 ### Approach & Efficiency
 
-### API
+[Link to Implementation](/implementations/LinkedList.js)

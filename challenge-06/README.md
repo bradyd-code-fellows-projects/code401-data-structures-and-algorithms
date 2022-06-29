@@ -2,6 +2,6 @@
 
 ## Linked List Insertions
 
-[Linked List Implementation](/challenge-05/LinkedList.js)
+[Linked List Implementation](/implementations/LinkedList.js)
 
 ![linked-list-insertions](/img/linked-list-insertions.jpg)

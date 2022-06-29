@@ -51,5 +51,14 @@ describe('Linked List Tests', () => {
     expect(result).toEqual(expected);
   })
 
+  test('Can properly return value and node k-th from end of list', () =>{
+    let result = linkedList.kthFromEnd(3);
+    expect(result).toEqual('banana');
+    let result2 = linkedList.kthFromEnd(4);
+    expect(result2).toEqual('monkeyparty');
+    let result3 = console.log(linkedList.kthFromEnd(77));
+    expect(result3).toBeFalsy();
+  })
+
 })
 

@@ -114,18 +114,24 @@ class LinkedList {
   // use tortoise and hare concept: 2 pointers moving at different pace, hare is k paces ahead of tortoise
   
   kthFromEnd(k) {
-    let i = 1;
-    let result;
-    while(current) {
-      if(i === k) {
-        result = current.value
-      } else if (i - k > 0) {
-        result = result.next;
+    let tortoise = this.head;
+    let hare = this.head;
+    for (let i = 0; i < k - 1; i++) {
+      if (!hare) {
+        console.log('k is greater than the length of the linked list');
+        return;
       }
-      i++;
-      current = current.next;
+      hare = hare.next;
     }
-    return result;
+    if (!hare) {
+      console.log('k is the size of the linked list');
+      return;
+    }
+    while(hare.next) {
+      tortoise = tortoise.next;
+      hare = hare.next;
+    }
+    return tortoise.value;
   }
 
 }
@@ -144,14 +150,18 @@ let zipLists = (list1, list2) => {
   return ('zippedLists: ', zippedLists);
 }
 
-// let linkedList = new LinkedList();
+let linkedList = new LinkedList();
 
-// linkedList.append('a');
-// linkedList.append('b');
-// linkedList.append('c');
-// linkedList.append('d');
-// linkedList.append('e');
-// linkedList.append('f');
+linkedList.append('a');
+linkedList.append('b');
+linkedList.append('c');
+linkedList.append('d');
+linkedList.append('e');
+linkedList.append('f');
+
+// console.log(linkedList);
+
+linkedList.kthFromEnd(6);
 
 // linkedList.toString();
 
