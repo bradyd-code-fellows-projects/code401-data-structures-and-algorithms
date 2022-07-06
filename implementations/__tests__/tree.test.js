@@ -4,7 +4,8 @@ const {
   Node,
   K_aryNode,
   BinaryTree,
-  BinarySearchTree, } = require('../Tree/index');
+  BinarySearchTree,
+  breadthFirst } = require('../Tree/index');
 
 describe('Tree class tests', () => {
 
@@ -71,6 +72,21 @@ describe('Binary Search Tree tests', () => {
     expect(bst.treeMax()).not.toEqual(7);
     expect(bst.treeMax()).not.toEqual(13);
     expect(bst.treeMax()).toEqual(29);
+  });
+
+  test('Can return list of values in order they were encountered during breadth-first traversal', () => {
+    let tree1 = new BinarySearchTree();
+    tree1.root = new Node(2);
+    tree1.root.left = new Node(7);
+    tree1.root.right = new Node(5);
+    tree1.root.left.left = new Node(2);
+    tree1.root.left.right = new Node(6);
+    tree1.root.right.right = new Node(9);
+    tree1.root.right.right.left = new Node(4);
+    tree1.root.left.right.left = new Node(5);
+    tree1.root.left.right.right = new Node(11);
+    let results = breadthFirst(tree1);
+    expect(results).toEqual([2, 7,  5, 2, 6, 9, 5, 11, 4]);
   })
 
 })
