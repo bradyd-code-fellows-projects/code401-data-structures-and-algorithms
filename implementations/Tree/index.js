@@ -27,8 +27,8 @@ class BinaryTree {
     let results = [];
     const traverse = node => {
       results.push(node.value);
-      if(node.left) traverse(node.left);
-      if(node.right) traverse(node.right);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
     };
     traverse(this.root);
     return results;
@@ -37,9 +37,9 @@ class BinaryTree {
   inOrder() {
     let results = [];
     const traverse = node => {
-      if(node.left) traverse(node.left);
+      if (node.left) traverse(node.left);
       results.push(node.value);
-      if(node.right) traverse(node.right);
+      if (node.right) traverse(node.right);
     };
     traverse(this.root);
     return results;
@@ -48,18 +48,18 @@ class BinaryTree {
   postOrder() {
     let results = [];
     const traverse = node => {
-      if(node.left) traverse(node.left);
-      if(node.right) traverse(node.right);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
       results.push(node.value);
     };
     traverse(this.root);
     return results;
   }
-  
+
 }
 
 class BinarySearchTree extends BinaryTree {
-  constructor () {
+  constructor() {
     super();
     this.root = null;
   }
@@ -68,45 +68,50 @@ class BinarySearchTree extends BinaryTree {
     let newNode = new Node(value);
     if (this.root === null) {
       this.root = newNode;
-    } else {
-      this.addNode(this.root, newNode);
+      return;
     }
-    if(newNode.value < node.value) {
-      if(node.left === null) {
-        node.left = newNode;
+    let current = this.root;
+    while (true) {
+      if (value < current.value) {
+        if (current.left === null) {
+          current.left = newNode;
+          return;
+        }
+        current = current.left;
       } else {
-        this.addNode(node.left, newNode);
+        if (current.right === null) {
+          current.right = newNode;
+          return;
+        }
+        current = current.right;
       }
-    } else {
-      if(node.right === null) {
-        node.right = newNode;
-      } else {
-        this.addNode(node.right, newNode);
-      }
-    }    
+    }
   }
 
   contains(value) {
+    if (this.root === null) {
+      return false;
+    }
     if (this.root.value === value) {
       return true;
     }
     let results = [];
     if (value < this.root.value) {
       const traverse = node => {
-      if(node.left) traverse(node.left);
-      results.push(node.value);
-      if(node.right) traverse(node.right);
+        if (node.left) traverse(node.left);
+        results.push(node.value);
+        if (node.right) traverse(node.right);
       };
       traverse(this.root);
     } else if (value > this.root.value) {
       const traverse = node => {
-      if(node.left) traverse(node.left);
-      results.push(node.value);
-      if(node.right) traverse(node.right);
+        if (node.left) traverse(node.left);
+        results.push(node.value);
+        if (node.right) traverse(node.right);
       };
       traverse(this.root);
-      }
-    if(results.includes(value)) {
+    }
+    if (results.includes(value)) {
       return true;
     }
     return false;
@@ -132,12 +137,14 @@ console.log('postOrder:', postOrder);
 
 console.log('contains 10: ', tree.contains(10));
 console.log('contains 1: ', tree.contains(1));
-console.log('contains 2: ', tree.contains(2));
-console.log('contains 20: ', tree.contains(20));
-console.log('contains 27: ', tree.contains(27));
 console.log('contains 3: ', tree.contains(3));
 tree.addNode(3);
-console.log('contains 3: ', tree.contains(3));
+console.log('contains 69: ', tree.contains(69));
+tree.addNode(69);
+console.log('contains 69: ', tree.contains(69));
+console.log('contains 77: ', tree.contains(77));
+tree.addNode(77);
+console.log('contains 77: ', tree.contains(77));
 
 
 module.exports = {
