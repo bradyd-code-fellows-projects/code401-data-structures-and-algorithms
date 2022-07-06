@@ -30,4 +30,6 @@ Challenge 13 - [Multi-Bracket Validation](challenge-13/README.md)
 
 Challenge 14 - [Mock Interview 03](challenge-14/README.md)
 
-Challenge 15 - [Trees]()
+Challenge 15 - [Trees](challenge-15/README.md)
+
+Challenge 16 - [Tree Max](challenge-16/README.md)

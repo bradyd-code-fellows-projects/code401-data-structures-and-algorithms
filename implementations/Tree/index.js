@@ -117,6 +117,24 @@ class BinarySearchTree extends BinaryTree {
     return false;
   }
 
+  treeMax() {
+    let treeValues = [];
+    const traverse = node => {
+      treeValues.push(node.value);
+      if (node.left) traverse(node.left);
+      if (node.right) traverse(node.right);
+    };
+    traverse(this.root);
+    let max = 0;
+    treeValues.forEach( value => {
+      if (value > max) {
+        max = value;
+      }
+      return max;
+    })
+    return max;
+  }
+
 }
 
 let tree = new BinarySearchTree();
@@ -140,14 +158,16 @@ console.log('contains 1: ', tree.contains(1));
 console.log('contains 3: ', tree.contains(3));
 tree.addNode(3);
 console.log('contains 69: ', tree.contains(69));
-tree.addNode(69);
+// tree.addNode(69);
 console.log('contains 69: ', tree.contains(69));
 console.log('contains 77: ', tree.contains(77));
-tree.addNode(77);
+// tree.addNode(77);
 console.log('contains 77: ', tree.contains(77));
+console.log(tree.treeMax());
 
 
 module.exports = {
+  Node,
   K_aryNode,
   BinaryTree,
   BinarySearchTree,
