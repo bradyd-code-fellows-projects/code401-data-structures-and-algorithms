@@ -1,5 +1,11 @@
 'use strict';
 
+const { Queue } = require('../stackAndQueue');
+
+// Challenge 15 - K_aryNode, Binary Tree, Binary Search Tree
+// Challenge 16 - Tree Max
+// Challenge 17 - Breadth First Traversal
+
 class Node {
   constructor(value) {
     this.value = value;
@@ -137,33 +143,67 @@ class BinarySearchTree extends BinaryTree {
 
 }
 
-let tree = new BinarySearchTree();
-tree.root = new Node(10);
-tree.root.left = new Node(5);
-tree.root.right = new Node(15);
-tree.root.left.left = new Node(1);
-tree.root.left.right = new Node(8);
-tree.root.right.right = new Node(20);
+function breadthFirst(tree) {
+  let queue = new Queue();
+  let results = [];
+  let current = tree.root;
+  queue.enqueue(current);
+  while(!queue.isEmpty()) {
+    current = queue.dequeue();
+    results.push(current.value);
+    if (current.left) {
+      queue.enqueue(current.left);
+    }
+    if (current.right) {
+      queue.enqueue(current.right);
+    }
+  }
+  return results;
+}
 
-let preOrder = tree.preOrder();
-let inOrder = tree.inOrder();
-let postOrder = tree.postOrder();
+let tree1 = new BinarySearchTree();
 
-console.log('preOrder:', preOrder);
-console.log('inOrder:', inOrder);
-console.log('postOrder:', postOrder);
+tree1.root = new Node(2);
+tree1.root.left = new Node(7);
+tree1.root.right = new Node(5);
+tree1.root.left.left = new Node(2);
+tree1.root.left.right = new Node(6);
+tree1.root.right.right = new Node(9);
+tree1.root.right.right.left = new Node(4);
+tree1.root.left.right.left = new Node(5);
+tree1.root.left.right.right = new Node(11);
 
-console.log('contains 10: ', tree.contains(10));
-console.log('contains 1: ', tree.contains(1));
-console.log('contains 3: ', tree.contains(3));
-tree.addNode(3);
-console.log('contains 69: ', tree.contains(69));
-// tree.addNode(69);
-console.log('contains 69: ', tree.contains(69));
-console.log('contains 77: ', tree.contains(77));
-// tree.addNode(77);
-console.log('contains 77: ', tree.contains(77));
-console.log(tree.treeMax());
+
+console.log(tree1);
+console.log(breadthFirst(tree1));
+
+// let tree = new BinarySearchTree();
+// tree.root = new Node(10);
+// tree.root.left = new Node(5);
+// tree.root.right = new Node(15);
+// tree.root.left.left = new Node(1);
+// tree.root.left.right = new Node(8);
+// tree.root.right.right = new Node(20);
+
+// let preOrder = tree.preOrder();
+// let inOrder = tree.inOrder();
+// let postOrder = tree.postOrder();
+
+// console.log('preOrder:', preOrder);
+// console.log('inOrder:', inOrder);
+// console.log('postOrder:', postOrder);
+
+// console.log('contains 10: ', tree.contains(10));
+// console.log('contains 1: ', tree.contains(1));
+// console.log('contains 3: ', tree.contains(3));
+// tree.addNode(3);
+// console.log('contains 69: ', tree.contains(69));
+// // tree.addNode(69);
+// console.log('contains 69: ', tree.contains(69));
+// console.log('contains 77: ', tree.contains(77));
+// // tree.addNode(77);
+// console.log('contains 77: ', tree.contains(77));
+// console.log(tree.treeMax());
 
 
 module.exports = {
@@ -171,4 +211,5 @@ module.exports = {
   K_aryNode,
   BinaryTree,
   BinarySearchTree,
+  breadthFirst,
 };
