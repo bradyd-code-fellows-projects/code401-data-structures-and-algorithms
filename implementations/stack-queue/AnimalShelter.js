@@ -1,6 +1,6 @@
 'use strict';
 
-const { Node } = require('./LinkedList');
+const { Node } = require('../linked-list/LinkedList');
 const Chance = require('chance');
 const chance = new Chance();
 

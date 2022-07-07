@@ -155,7 +155,6 @@ let zipLists = (list1, list2) => {
       list2Current = list2Current.next;
     }
   }
-  console.log('stringified: ', zippedLists.toString());
   return zippedLists;
 }
 
@@ -170,7 +169,6 @@ linkedList1.append('e');
 linkedList2.append('f');
 
 let zip = zipLists(linkedList1, linkedList2);
-console.log('zip: ', zip);
 
 module.exports = {
   LinkedList,

@@ -1,7 +1,7 @@
 'use strict';
 
 const { Stack } = require('./stackAndQueue');
-const { Node } = require('./LinkedList');
+const { Node } = require('../linked-list/LinkedList');
 
 function matchingBrackets(str) {
   let stack = new Stack();

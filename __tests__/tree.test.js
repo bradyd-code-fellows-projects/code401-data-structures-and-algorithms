@@ -5,7 +5,8 @@ const {
   K_aryNode,
   BinaryTree,
   BinarySearchTree,
-  breadthFirst } = require('../Tree/index');
+  breadthFirst,
+  fizzBuzz } = require('../implementations/Tree/index');
 
 describe('Tree class tests', () => {
 
@@ -86,7 +87,34 @@ describe('Binary Search Tree tests', () => {
     tree1.root.left.right.left = new Node(5);
     tree1.root.left.right.right = new Node(11);
     let results = breadthFirst(tree1);
-    expect(results).toEqual([2, 7,  5, 2, 6, 9, 5, 11, 4]);
+    expect(results).toEqual([2, 7, 5, 2, 6, 9, 5, 11, 4]);
   })
+})
+
+describe('FizzBuzz Tests', () => {
+  test('Can successfully "FizzBuzz" a binary tree', () => {
+    let fbTree = new BinaryTree();
+    fbTree.root = new Node(1);
+    fbTree.root.left = new Node(12);
+    fbTree.root.right = new Node(30);
+    fbTree.root.left.left = new Node(15);
+    fbTree.root.right.left = new Node(20);
+    fbTree.root.right.right = new Node(34);
+    fbTree.root.right.left.right = new Node(75);
+    let result = fizzBuzz(fbTree);
+    expect(result.root.value).toEqual("1");
+    expect(result.root.left.value).toEqual("Fizz");
+    expect(result.root.right.value).toEqual("FizzBuzz");
+    expect(result.root.left.left.value).toEqual("FizzBuzz");
+    expect(result.root.right.left.value).toEqual("Buzz");
+    expect(result.root.right.right.value).toEqual("34");
+    expect(result.root.right.left.right.value).toEqual("FizzBuzz");
+  });
+
+  test('Properly handles expected failures', () => {
+    let emptyTree = new BinaryTree();
+    expect(fizzBuzz(emptyTree)).toEqual('Empty tree');
+    
+  });
 
 })

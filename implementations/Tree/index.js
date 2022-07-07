@@ -1,6 +1,6 @@
 'use strict';
 
-const { Queue } = require('../stackAndQueue');
+const { Queue } = require('../stack-queue/stackAndQueue');
 
 // Challenge 15 - K_aryNode, Binary Tree, Binary Search Tree
 // Challenge 16 - Tree Max
@@ -132,7 +132,7 @@ class BinarySearchTree extends BinaryTree {
     };
     traverse(this.root);
     let max = 0;
-    treeValues.forEach( value => {
+    treeValues.forEach(value => {
       if (value > max) {
         max = value;
       }
@@ -148,7 +148,7 @@ function breadthFirst(tree) {
   let results = [];
   let current = tree.root;
   queue.enqueue(current);
-  while(!queue.isEmpty()) {
+  while (!queue.isEmpty()) {
     current = queue.dequeue();
     results.push(current.value);
     if (current.left) {
@@ -161,21 +161,46 @@ function breadthFirst(tree) {
   return results;
 }
 
-let tree1 = new BinarySearchTree();
+function fizzBuzz(tree) {
+  if (tree.root === null) {
+    return 'Empty tree';
+  }
+  const traverse = node => {
+    if (node.value % 3 !== 0 && node.value % 5 !== 0) {
+      node.value = node.value.toString();
+    } else if (node.value % 3 === 0 && node.value % 5 !== 0) {
+      node.value = "Fizz";
+    } else if (node.value % 3 !== 0 && node.value % 5 === 0) {
+      node.value = "Buzz";
+    } else if (node.value % 3 === 0 && node.value % 5 === 0) {
+      node.value = "FizzBuzz";
+    }
+    if (node.left) traverse(node.left);
+    if (node.right) traverse(node.right);
+  }
+  traverse(tree.root);
+  return tree;
+}
 
-tree1.root = new Node(2);
-tree1.root.left = new Node(7);
-tree1.root.right = new Node(5);
-tree1.root.left.left = new Node(2);
-tree1.root.left.right = new Node(6);
-tree1.root.right.right = new Node(9);
-tree1.root.right.right.left = new Node(4);
-tree1.root.left.right.left = new Node(5);
-tree1.root.left.right.right = new Node(11);
+// let tree1 = new BinaryTree();
 
+// tree1.root = new Node(1);
+// tree1.root.left = new Node(12);
+// tree1.root.right = new Node(30);
+// tree1.root.left.left = new Node(15);
+// tree1.root.right.left = new Node(20);
+// tree1.root.right.right = new Node(34);
+// tree1.root.right.left.right = new Node(75);
 
-console.log(tree1);
-console.log(breadthFirst(tree1));
+// console.log(tree1);
+// let tree2 = fizzBuzz(tree1);
+// console.log(tree2.root.value);
+// console.log(tree2.root.left.value);
+// console.log(tree2.root.right.value);
+// console.log(tree2.root.left.left.value);
+// console.log(tree2.root.right.left.value);
+// console.log(tree2.root.right.right.value);
+// console.log(tree2.root.right.left.right.value);
 
 // let tree = new BinarySearchTree();
 // tree.root = new Node(10);
@@ -212,4 +237,5 @@ module.exports = {
   BinaryTree,
   BinarySearchTree,
   breadthFirst,
+  fizzBuzz,
 };

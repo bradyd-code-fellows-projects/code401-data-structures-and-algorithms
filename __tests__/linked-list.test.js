@@ -1,6 +1,6 @@
 'use strict';
 
-const { LinkedList, Node, zipLists } = require('../LinkedList');
+const { LinkedList, Node, zipLists } = require('../implementations/linked-list/LinkedList');
 
 let linkedList = new LinkedList();
 
