@@ -137,36 +137,44 @@ class LinkedList {
 }
 
 let zipLists = (list1, list2) => {
-  let zippedLists = new LinkedList;
-  list1.current = list1.head;
-  list2.current = list2.head;
-  zippedLists.head = list1.current;
-  zippedLists.current = zippedLists.head;
-  while (list1.next) {
-    let next1 = 
-    zippedLists.next = list2.current;
-
+  let zippedLists = new LinkedList();
+  let list1Current = list1.head;
+  let list2Current = list2.head;
+  let currentList =  1;
+  if (list1Current === null && list2Current === null) {
+    return 'Both input lists empty, cannot zip empty lists';
   }
-  return ('zippedLists: ', zippedLists);
+  while (list1Current || list2Current) {
+    if (currentList === 1) {
+      zippedLists.append(list1Current.value);
+      currentList = 2;
+      list1Current = list1Current.next;
+    } else {
+      zippedLists.append(list2Current.value);
+      currentList = 1;
+      list2Current = list2Current.next;
+    }
+  }
+  console.log('stringified: ', zippedLists.toString());
+  return zippedLists;
 }
 
-let linkedList = new LinkedList();
+let linkedList1 = new LinkedList();
+let linkedList2 = new LinkedList();
 
-linkedList.append('a');
-linkedList.append('b');
-linkedList.append('c');
-linkedList.append('d');
-linkedList.append('e');
-linkedList.append('f');
+linkedList1.append('a');
+linkedList2.append('b');
+linkedList1.append('c');
+linkedList2.append('d');
+linkedList1.append('e');
+linkedList2.append('f');
 
-// console.log(linkedList);
-
-linkedList.kthFromEnd(6);
-
-// linkedList.toString();
+let zip = zipLists(linkedList1, linkedList2);
+console.log('zip: ', zip);
 
 module.exports = {
   LinkedList,
   Node,
+  zipLists,
 };
 

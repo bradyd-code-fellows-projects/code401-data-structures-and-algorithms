@@ -1,6 +1,6 @@
 'use strict';
 
-const LinkedList = require('../LinkedList');
+const { LinkedList, Node, zipLists } = require('../LinkedList');
 
 let linkedList = new LinkedList();
 
@@ -51,13 +51,27 @@ describe('Linked List Tests', () => {
     expect(result).toEqual(expected);
   })
 
-  test('Can properly return value and node k-th from end of list', () =>{
+  test('Can properly return value and node k-th from end of list', () => {
     let result = linkedList.kthFromEnd(3);
     expect(result).toEqual('banana');
     let result2 = linkedList.kthFromEnd(4);
     expect(result2).toEqual('monkeyparty');
     let result3 = console.log(linkedList.kthFromEnd(77));
     expect(result3).toBeFalsy();
+  })
+
+  test('Can zip two lists together', () => {
+    let list1 = new LinkedList();
+    let list2 = new LinkedList();
+    list1.head = new Node(1);
+    list2.head = new Node(2);
+    list1.head.next = new Node(3);
+    list2.head.next = new Node(4);
+    let result = zipLists(list1, list2);
+    let stringified = result.toString();
+    let expected = '{ 1 } -> { 2 } -> { 3 } -> { 4 } -> NULL'
+    console.log(result);
+    expect(stringified).toEqual(expected);
   })
 
 })
