@@ -37,3 +37,9 @@ Challenge 16 - [Tree Max](challenge-16/README.md)
 Challenge 17 - [Breadth-first Traversal](challenge-17/README.md)
 
 Challenge 18 - [Tree Fizz Buzz](challenge-18/README.md)
+
+Challenge 19 - [Mock Interview 04](challenge-19/README.md)
+
+Challenge 26 - [Insertion Sort](Challenge-26/README.md)
+
+Challenge 27 - [Merge Sort](Challenge-27/README.md)
