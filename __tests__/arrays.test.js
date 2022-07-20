@@ -11,4 +11,6 @@ describe('Array sorting methods', () => {
     expect(result).toEqual([4, 8, 15, 16, 23, 42]);
   });
 
+  test.todo('mergeSort can properly sort an array')
+
 });
