@@ -43,3 +43,5 @@ Challenge 19 - [Mock Interview 04](challenge-19/README.md)
 Challenge 26 - [Insertion Sort](Challenge-26/README.md)
 
 Challenge 27 - [Merge Sort](Challenge-27/README.md)
+
+Challenge 28 - [Quick Sort](Challenge-28/README.md)
