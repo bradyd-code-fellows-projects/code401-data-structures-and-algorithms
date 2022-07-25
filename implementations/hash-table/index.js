@@ -62,7 +62,7 @@ class HashTable {
   contains(key){
     let position = this.hash(key);
     let ternary = ((this.buckets[position]) ? true : false)
-    console.log(`Contains key: "${key}"? --> ${ternary}`);
+    // console.log(`Contains key: "${key}"? --> ${ternary}`);
     return ternary;
   }
 
@@ -73,19 +73,47 @@ class HashTable {
 
 }
 
+const repeatedWord = string => {
+  let table = new HashTable();
+  let firstRepeat = null;
+  for (let i = 0; i < string.length; i++) {
+    if (/^(?:\w+)$/gm.test(string[i]) === false) {
+      continue;
+    } else {
+      if (table.contains(string[i])) {
+        firstRepeat = string[i];
+        break;
+      } else {
+        table.set(string[i]);
+      }
+    }
+  }
+  return firstRepeat;
+}
+
 let table = new HashTable(1024);
 
 // console.log('table pre set:' , table);
 // console.log(table.hash('Brady'));
-table.set('Brady', 'Colorado');
-table.set('Joe', 'Here');
-table.set('Matt', 'There');
-table.set('Sheryl', 'Anywhere');
-table.set('Wanda', 'Kansas');
+// table.set('Brady', 'Colorado');
+// table.set('Joe', 'Here');
+// table.set('Matt', 'There');
+// table.set('Sheryl', 'Anywhere');
+// table.set('Wanda', 'Kansas');
 // table.contains('Brady');
 // table.contains('Reggie');
 // console.log('table post set: ', table);
-console.log(table.getKeys());
+// console.log(table.getKeys());
 
+let string1 = 'Once upon a time, there was a brave princess who...';
+let string2 = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...';
+
+console.log('expect "a" ', repeatedWord(string1));
+console.log('expect "it" ', repeatedWord(string2));
+
+console.log(/^(?:\w+)$/gm.test('string'));
+console.log(/^(?:\w+)$/gm.test(' '));
+console.log(/^(?:\w+)$/gm.test('stringtwo'));
+console.log(/^(?:\w+)$/gm.test(2));
 
 module.exports = HashTable;
