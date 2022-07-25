@@ -6,4 +6,4 @@
 
 [Link to Tests](../__tests__/hashTable.test.js)
 
-![hashmap-repeated-word]()
+![hashmap-repeated-word](../img/hashmap-repeated-word.jpeg)
