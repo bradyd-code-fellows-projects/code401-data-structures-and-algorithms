@@ -1,6 +1,6 @@
 'use strict';
 
-// Challenge 06: append(value), insertBefore(value, newValue), insertAfter(value, newValue)
+// Challenge 06: add(value), insertBefore(value, newValue), insertAfter(value, newValue)
 // Challenge 07: kthFromEnd(k)
 // Challenge 08: zipLists(list1, list2)
 
@@ -20,7 +20,7 @@ class LinkedList {
   }
 
 
-  append(value) {
+  add(value) {
 
     const node = new Node(value);
     if (!this.head) {
@@ -146,11 +146,11 @@ let zipLists = (list1, list2) => {
   }
   while (list1Current || list2Current) {
     if (currentList === 1) {
-      zippedLists.append(list1Current.value);
+      zippedLists.add(list1Current.value);
       currentList = 2;
       list1Current = list1Current.next;
     } else {
-      zippedLists.append(list2Current.value);
+      zippedLists.add(list2Current.value);
       currentList = 1;
       list2Current = list2Current.next;
     }
@@ -161,12 +161,12 @@ let zipLists = (list1, list2) => {
 let linkedList1 = new LinkedList();
 let linkedList2 = new LinkedList();
 
-linkedList1.append('a');
-linkedList2.append('b');
-linkedList1.append('c');
-linkedList2.append('d');
-linkedList1.append('e');
-linkedList2.append('f');
+linkedList1.add('a');
+linkedList2.add('b');
+linkedList1.add('c');
+linkedList2.add('d');
+linkedList1.add('e');
+linkedList2.add('f');
 
 let zip = zipLists(linkedList1, linkedList2);
 
