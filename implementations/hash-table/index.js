@@ -1,6 +1,6 @@
 'use strict';
 
-const { LinkedList } = require('../linked-list/LinkedList');
+const { LinkedList, Node } = require('../linked-list/LinkedList');
 
 class HashTable {
   constructor(size){
@@ -60,16 +60,32 @@ class HashTable {
   }
 
   contains(key){
-    
+    let position = this.hash(key);
+    let ternary = ((this.buckets[position]) ? true : false)
+    console.log(`Contains key: "${key}"? --> ${ternary}`);
+    return ternary;
   }
 
-  keys(){
-
+  getKeys(){
+    let keys = Object.keys(this.buckets);
+    return `Keys: ${keys}`;
   }
+
 }
 
 let table = new HashTable(1024);
 
-console.log(table);
-console.log(table.hash('Brady'));
+// console.log('table pre set:' , table);
+// console.log(table.hash('Brady'));
 table.set('Brady', 'Colorado');
+table.set('Joe', 'Here');
+table.set('Matt', 'There');
+table.set('Sheryl', 'Anywhere');
+table.set('Wanda', 'Kansas');
+// table.contains('Brady');
+// table.contains('Reggie');
+// console.log('table post set: ', table);
+console.log(table.getKeys());
+
+
+module.exports = HashTable;
