@@ -47,3 +47,5 @@ Challenge 27 - [Merge Sort](Challenge-27/README.md)
 Challenge 28 - [Quick Sort](Challenge-28/README.md)
 
 Challenge 29 - [Mock Interview 05](Challenge-29/README.md)
+
+Challenge 30 - [Hash Table](Challenge-30/README.md)
