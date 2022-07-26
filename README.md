@@ -51,3 +51,5 @@ Challenge 29 - [Mock Interview 05](Challenge-29/README.md)
 Challenge 30 - [Hash Table](Challenge-30/README.md)
 
 Challenge 31 - [Hashmap Repeated Word](challenge-31/README.md)
+
+Challenge 32 - [Tree Intersection](challenge-32/README.md)
