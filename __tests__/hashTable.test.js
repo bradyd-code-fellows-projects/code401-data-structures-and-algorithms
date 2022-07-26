@@ -25,3 +25,9 @@ describe('Hash table tests', () => {
   test.todo('Successfully hash a key to an in-range value');
   
 })
+
+describe('Tree intersection tests', () => {
+  test.todo('happy path');
+  test.todo('expected failure');
+  test.todo('edge case(s)');
+})
