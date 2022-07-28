@@ -6,7 +6,7 @@
 
 ### Whiteboard
 
-![image](../img/)
+![image](../../img/)
 
 ### Approach & Efficiency
 
@@ -15,8 +15,8 @@ Space: O()
 
 ### Solution
 
-- [Link to Implementation](/implementations/)
+- [Link to Implementation](../../implementations/)
 
 ### Testing
 
-- [Link to Tests](../__tests__/)
+- [Link to Tests](../../__tests__/)
