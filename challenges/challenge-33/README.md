@@ -4,7 +4,7 @@
 
 ### Problem Domain
 
-Implement a simplified LEFT JOIN for 2 Hashmaps.
+Write a function that `LEFT JOINs` two hashmaps into a single data structure.
 
 - Write a function called left join
 - Arguments: two hash maps
@@ -14,7 +14,7 @@ Implement a simplified LEFT JOIN for 2 Hashmaps.
 
 ### Whiteboard
 
-![image](../../img/)
+![image](../../img/hashmap-left-join.jpg)
 
 ### Approach & Efficiency
 
@@ -23,7 +23,7 @@ Space: O()
 
 ### Solution
 
-- [Link to Implementation](../../implementations/)
+- [Link to Implementation](../../implementations/hash-table/index.js)
 
 ### Testing
 

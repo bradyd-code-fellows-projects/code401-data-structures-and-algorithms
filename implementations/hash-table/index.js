@@ -3,9 +3,9 @@
 const { LinkedList, Node } = require('../linked-list/LinkedList');
 
 class HashTable {
-  constructor(size){
+  constructor(size) {
     this.size = size;
-    this.buckets = new Array(size); 
+    this.buckets = new Array(size);
   }
 
   /**
@@ -13,12 +13,8 @@ class HashTable {
    * @param {String} key 
    * @returns 
    */
-  hash(key){
-    if (typeOf(key) === 'string') {
-      let characters = key.split('');
-    } else {
-      let characters = key;
-    }
+  hash(key) {
+    let characters = key.split('');
     let asciiSum = characters.reduce((sum, character) => {
       return sum + character.charCodeAt(0);
     }, 0);
@@ -28,14 +24,14 @@ class HashTable {
     return initialHash % 1024;
   }
 
-  set(key, value){
+  set(key, value) {
     // hash is the position inside the table where we will "set" the key value pair
     let position = this.hash(key);
-    let data = {[key]: value};
+    let data = { [key]: value };
 
     // we check if there is a bucket at the specified position
     // if bucket exists, add our data
-    if (this.buckets[position]){
+    if (this.buckets[position]) {
       let bucket = this.buckets[position];
       bucket.add(data);
     } else {
@@ -51,10 +47,10 @@ class HashTable {
   }
 
   // returns ONLY the value stored
-  get(key){
+  get(key) {
     let position = this.hash(key);
 
-    if(this.buckets[position]){
+    if (this.buckets[position]) {
       let bucket = this.buckets[position];
 
       // I'll assume no collisions, I'll leave the link list traversal to you (as a stretch goal);
@@ -63,16 +59,16 @@ class HashTable {
     }
   }
 
-  contains(key){
+  contains(key) {
     let position = this.hash(key);
     let ternary = ((this.buckets[position]) ? true : false)
     // console.log(`Contains key: "${key}"? --> ${ternary}`);
     return ternary;
   }
 
-  getKeys(){
+  getKeys() {
     let keys = Object.keys(this.buckets);
-    return `Keys: ${keys}`;
+    return keys;
   }
 
 }
@@ -101,17 +97,54 @@ const treeIntersection = (tree1, tree2) => {
   return matchingValues;
 }
 
-let table = new HashTable(1024);
+const leftJoin = (leftMap, rightMap) => {
+  let results = {};
+  let leftKeys = leftMap.getKeys();
+  let rightKeys = rightMap.getKeys();
+  for (let i = 0; i < rightKeys.length; i++) {
+    let currentKey = rightKeys[i];
+    if (!leftKeys.includes(currentKey)) {
+      continue;
+    } else {
+      let rightValue = rightMap.get(currentKey);
+      let leftValue = leftMap.get(currentKey);
+      results[currentKey] = [leftValue, rightValue];
+    }
+  }
+  for (let j = 0; j < leftKeys.length; j++) {
+    let currentKey = leftKeys[j];
+    let leftValue = leftMap.get(currentKey);
+    if (!rightKeys.includes(currentKey)) {
+      results[currentKey] = [leftValue, 'NULL']
+    } else {
+      continue;
+    }
+  }
+  return results;
+}
 
-let string1 = 'Once upon a time, there was a brave princess who...';
-let string2 = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...';
+let table1 = new HashTable(1024);
+table1.set('one', 1);
+table1.set('two', 2);
+table1.set('three', 3);
 
-console.log('expect "a" ', repeatedWord(string1));
-console.log('expect "it" ', repeatedWord(string2));
+let table2 = new HashTable(1024);
+table2.set('a', 33);
+table2.set('two', 6);
+table2.set('b', 77);
+table2.set('three', 48);
 
-console.log(/^(?:\w+)$/gm.test('string'));
-console.log(/^(?:\w+)$/gm.test(' '));
-console.log(/^(?:\w+)$/gm.test('stringtwo'));
-console.log(/^(?:\w+)$/gm.test(2));
+console.log(leftJoin(table2, table1));
+
+// let string1 = 'Once upon a time, there was a brave princess who...';
+// let string2 = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...';
+
+// console.log('expect "a" ', repeatedWord(string1));
+// console.log('expect "it" ', repeatedWord(string2));
+
+// console.log(/^(?:\w+)$/gm.test('string'));
+// console.log(/^(?:\w+)$/gm.test(' '));
+// console.log(/^(?:\w+)$/gm.test('stringtwo'));
+// console.log(/^(?:\w+)$/gm.test(2));
 
 module.exports = HashTable;
