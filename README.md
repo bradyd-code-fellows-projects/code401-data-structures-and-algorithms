@@ -55,3 +55,5 @@ Challenge 31 - [Hashmap Repeated Word](/challenges/challenge-31/README.md)
 Challenge 32 - [Tree Intersection](/challenges/challenge-32/README.md)
 
 Challenge 33 - [Left Join](/challenges/challenge-33/README.md)
+
+Challenge 34 - [Mock Interview 06](/challenges/challenge-34/README.md)

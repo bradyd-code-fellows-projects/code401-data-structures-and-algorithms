@@ -123,18 +123,41 @@ const leftJoin = (leftMap, rightMap) => {
   return results;
 }
 
-let table1 = new HashTable(1024);
-table1.set('one', 1);
-table1.set('two', 2);
-table1.set('three', 3);
+const mostCommon = (str) => {
+  let mostOccurrencesKey = 0;
+  let wordsTable = new HashTable(1024);
+  let splitStr = str.split(' ');
+  for (let i = 0; i < splitStr.length; i++) {
+    wordsTable.set(splitStr[i], 1);
+  }
+  console.log(wordsTable.buckets[95]);
+  let keys = wordsTable.getKeys();
+  let longestBucket = 0;
+  for (let j = 0; j < keys.length; j++) {
+    if (keys[j].length > longestBucket) {
+      longestBucket = keys[j].length;
+      mostOccurrencesKey = keys[j];
+    }
+  }
+  let mostOccurrences = wordsTable.get(mostOccurrencesKey);
+  return mostOccurrences;
+}
 
-let table2 = new HashTable(1024);
-table2.set('a', 33);
-table2.set('two', 6);
-table2.set('b', 77);
-table2.set('three', 48);
+// let table1 = new HashTable(1024);
+// table1.set('one', 1);
+// table1.set('two', 2);
+// table1.set('three', 3);
 
-console.log(leftJoin(table2, table1));
+// let table2 = new HashTable(1024);
+// table2.set('a', 33);
+// table2.set('two', 6);
+// table2.set('b', 77);
+// table2.set('three', 48);
+
+// console.log(leftJoin(table2, table1));
+
+let str1 = 'in a galaxy far, far away';
+console.log(mostCommon(str1));
 
 // let string1 = 'Once upon a time, there was a brave princess who...';
 // let string2 = 'It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only...';
