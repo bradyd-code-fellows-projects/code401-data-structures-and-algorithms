@@ -1,6 +1,6 @@
 'use strict';
 
-const HashTable = require('../implementations/hash-table/index');
+const HashTable = require('../implementations/hash-table/HashTable');
 
 describe('Hash table tests', () => {
 
