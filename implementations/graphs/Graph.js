@@ -94,6 +94,10 @@ class Graph {
 
 }
 
+const businessTrip = (graph, array) => {
+  // need to transfer from whiteboard
+}
+
 const graph = new Graph();
 
 const A = graph.addNode('A');
@@ -121,7 +125,7 @@ graph.addEdge(F, E);
 
 // console.log('************************');
 
-// graph.breadthFirst(A, console.log);
+console.log(graph.breadthFirst(A));
 
 console.log(graph.size());
 
