@@ -65,3 +65,5 @@ Challenge 37 - [Graph - Business Trip](challenges/challenge-37/README.md)
 Challenge 38 - [Graph - Depth first](challenges/challenge-38/README.md)
 
 Challenge 39 - [Mock Interview 07](challenges/challenge-39/README.md)
+
+Challenge 40 - [Mock Interview 08](challenges/challenge-40/README.md)
